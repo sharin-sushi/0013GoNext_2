@@ -14,7 +14,9 @@ export default function Post({ post }: { post: Post }) {
   );
 }
 
-export async function getStaticProps({ params }: { params: { post: string } }) {
+// export async function getStaticProps({ params }: { params: { post: string } }) {
+  export async function getStaticProps({ params }: { params: Post[] }) {
+  // const { id } = params 
   const id = params.post;
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   // fetch 外部APIから非同期でデータ取得
